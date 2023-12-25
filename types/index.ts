@@ -47,12 +47,14 @@ export interface OptionProps {
   value: string;
 }
 
-export interface CustomFilterProps {
+export interface CustomFilterProps<T> {
   title: string;
   options: OptionProps[];
+  setFilter: React.Dispatch<React.SetStateAction<T>>;
 }
 
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
+  setLimit: React.Dispatch<React.SetStateAction<number>>;
 }

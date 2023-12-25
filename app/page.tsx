@@ -8,6 +8,14 @@ import { fetchCars } from "@/utils";
 import CarCard from "@/components/shared/CarCard";
 import { fuels, yearsOfProduction } from "@/constants";
 import Image from "next/image";
+import { CustomFilterProps } from "@/types";
+
+// Definir el tipo para CustomFilter
+type CustomFilterType<T> = React.FC<CustomFilterProps<T>>;
+
+// Utilizar CustomFilterType con los tipos específicos
+const FuelFilter: CustomFilterType<string> = CustomFilter;
+const YearFilter: CustomFilterType<number> = CustomFilter;
 
 export default function Home() {
   const [allCars, setAllCars] = useState([]);
@@ -69,8 +77,8 @@ export default function Home() {
           <SearchBar setManufacturer={setManufacturer} setModel={setModel} />
 
           <div className="home__filter-container">
-            <CustomFilter title="fuel" options={fuels} setFilter={setFuel} />
-            <CustomFilter
+            <FuelFilter title="fuel" options={fuels} setFilter={setFuel} />
+            <YearFilter
               title="year"
               options={yearsOfProduction}
               setFilter={setYear}

@@ -8,7 +8,11 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CustomFilterProps } from "@/types";
 import { updateSearchParams } from "@/utils";
 
-const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
+const CustomFilter: React.FC<CustomFilterProps<any>> = ({
+  title,
+  options,
+  setFilter,
+}) => {
   const [selected, setSelected] = useState(options[0]);
 
   // Client Side Rendering
