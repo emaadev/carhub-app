@@ -11,8 +11,8 @@ export interface CustomButtonProps {
 }
 
 export interface SearchManufacturerProps {
-  manufacturer: string;
-  setManufacturer: (manufacturer: string) => void;
+  selected: string;
+  setSelected: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface CarProps {
@@ -57,4 +57,9 @@ export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
   setLimit: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface SearchBarProps {
+  setManufacturer: React.Dispatch<React.SetStateAction<string>>;
+  setModel: React.Dispatch<React.SetStateAction<string>>;
 }
